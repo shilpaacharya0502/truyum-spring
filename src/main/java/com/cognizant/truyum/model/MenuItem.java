@@ -67,9 +67,14 @@ public class MenuItem {
         this.freeDelivery = freeDelivery;
     }
 
-    public MenuItem() {
-        super();
+    public MenuItem(int i, String string, int j, boolean b, Date convertToDate, String string2, boolean c) {
+        // TODO Auto-generated constructor stub
     }
+    public MenuItem() {
+       super();
+    }
+
+    
 
     @Override
     public String toString() {

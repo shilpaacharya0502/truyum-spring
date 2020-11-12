@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.cognizant.truyum.dao.MenuItemDao;
 import com.cognizant.truyum.model.MenuItem;
+import com.cognizant.truyum.util.DateUtil;
 
 @Service("menuItemService")
 public class MenuItemService implements MenuItemDao{
@@ -38,16 +39,15 @@ public class MenuItemService implements MenuItemDao{
         return menuItemDao.getMenuItemListCustomer();
     }
     
-    public MenuItem getMenuItem(long menuItemId) {
-        return null;
+    public MenuItem getMenuItem(long menuItemId) throws ClassNotFoundException, IOException, SQLException {
+        ApplicationContext ctx=new ClassPathXmlApplicationContext("spring-config.xml");
+        menuItemDao=(MenuItemDao)ctx.getBean("MenuItemDaoCollectionImpl");
+        return menuItemDao.getMenuItem(menuItemId);
     }
-    public void editMenuItem(MenuItem menutItem) {
-        
-    }
-
     @Override
     public void modifyMenuItem(MenuItem menuItem) throws ClassNotFoundException, IOException, SQLException {
-        // TODO Auto-generated method stub
-        
+        ApplicationContext ctx=new ClassPathXmlApplicationContext("spring-config.xml");
+        menuItemDao=(MenuItemDao)ctx.getBean("MenuItemDaoCollectionImpl");
+        menuItemDao.modifyMenuItem(menuItem);
     }
 }

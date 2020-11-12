@@ -89,6 +89,8 @@
 		<property name="category" value="DEssert"></property>
 		<property name="freeDelivery" value="true"></property>
 	</bean>
+
+	
 	<bean id="menuItems" class="java.util.ArrayList">
 		<constructor-arg>
 			<list>
@@ -105,4 +107,5 @@
 			<ref bean="menuItems"/>
 		</property>
 	</bean>
+
 </beans>

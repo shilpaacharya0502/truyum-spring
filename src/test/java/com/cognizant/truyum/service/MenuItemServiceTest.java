@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.List;
 
 import org.junit.Before;
@@ -12,6 +13,7 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.cognizant.truyum.model.MenuItem;
+import com.cognizant.truyum.util.DateUtil;
 
 public class MenuItemServiceTest {
     MenuItemService menuItemService;
@@ -56,6 +58,23 @@ public class MenuItemServiceTest {
             {
                 assertEquals("French Fries",m.getName());
             }
+        }
+    }
+    @Test 
+    public void testGetMenuItem() throws ClassNotFoundException, IOException, SQLException{
+        //System.out.println(menuItemService.getMenuItem(1));
+        boolean res=menuItemService.getMenuItem(1).getName().equals("Sandwich");
+        assertTrue(res);
+    }
+    @Test 
+    public void testModifyMenuItem() throws ClassNotFoundException, IOException, SQLException{
+        try {
+            MenuItem mAdd= new MenuItem(2,"Noodles", 49, true, DateUtil.convertToDate("23/10/2020"), "Main Course",
+                    false);
+            menuItemService.modifyMenuItem(mAdd);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
      

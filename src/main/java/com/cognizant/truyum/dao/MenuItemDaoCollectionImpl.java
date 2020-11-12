@@ -47,7 +47,6 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
                 }
             }
         }
-        //System.out.println(menuItemListC.size());
         return menuItemListC;
     }
 
@@ -61,6 +60,7 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
                 m.setCategory(menuItem.getCategory());
                 m.setFreeDelivery(menuItem.isFreeDelivery());
             }
+            
         }
     }
 
